@@ -9,7 +9,7 @@ function Contact() {
         <motion.div
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-16"
         >
           <motion.h2
@@ -35,7 +35,7 @@ function Contact() {
               key={info.label}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: i * 0.08 }}
               className="glass rounded-2xl p-5 hover:border-amber-500/40 transition-colors duration-300"
             >
@@ -67,7 +67,7 @@ function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="flex items-center justify-center gap-4"
         >
           {[

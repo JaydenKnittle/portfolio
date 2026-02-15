@@ -6,7 +6,7 @@ function ProjectCard({ project, index }) {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -10 }}
       className="glass rounded-3xl overflow-hidden group hover:border-amber-500/40 transition-colors duration-300"
@@ -43,7 +43,7 @@ function ProjectCard({ project, index }) {
               className="flex items-center gap-2 text-sm text-white/50"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: i * 0.05 }}
             >
               <div className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { fadeIn, slideIn } from '../utils/animations';
 
 function Hero() {
@@ -105,15 +105,6 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.a
-          href="#about"
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ChevronDown className="w-8 h-8 text-amber-400/50" />
-        </motion.a>
       </div>
     </section>
   );

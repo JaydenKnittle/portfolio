@@ -102,7 +102,7 @@ function TicTacToe() {
   };
 
   const XMark = () => (
-    <svg viewBox="0 0 40 40" className="w-10 h-10">
+    <svg viewBox="0 0 40 40" className="w-8 h-8 sm:w-10 sm:h-10">
       <motion.line x1="8" y1="8" x2="32" y2="32" stroke="#D4AF37" strokeWidth="4.5" strokeLinecap="round"
         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.25 }} />
       <motion.line x1="32" y1="8" x2="8" y2="32" stroke="#D4AF37" strokeWidth="4.5" strokeLinecap="round"
@@ -111,7 +111,7 @@ function TicTacToe() {
   );
 
   const OMark = () => (
-    <svg viewBox="0 0 40 40" className="w-10 h-10">
+    <svg viewBox="0 0 40 40" className="w-8 h-8 sm:w-10 sm:h-10">
       <motion.circle cx="20" cy="20" r="12" stroke="rgba(255,255,255,0.75)" strokeWidth="4" fill="none"
         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.35 }} />
     </svg>
@@ -119,7 +119,7 @@ function TicTacToe() {
 
   return (
     <div className="max-w-lg mx-auto">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-3xl p-8">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-3xl p-4 sm:p-8">
         {/* Scoreboard */}
         <div className="grid grid-cols-3 gap-3 mb-8">
           {[
@@ -166,7 +166,7 @@ function TicTacToe() {
                   key={index}
                   onClick={() => handleClick(index)}
                   disabled={!canClick}
-                  className="w-24 h-24 rounded-xl flex items-center justify-center"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center"
                   style={{
                     background: isWin ? 'linear-gradient(135deg, rgba(212,175,55,0.25), rgba(255,215,0,0.1))' : cell ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)',
                     border: isWin ? '1px solid rgba(212,175,55,0.5)' : '1px solid rgba(255,255,255,0.07)',

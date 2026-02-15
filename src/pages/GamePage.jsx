@@ -51,8 +51,8 @@ function GamePage() {
         />
       </div>
 
-      <div className="relative z-10 p-8">
-        <div className="max-w-4xl mx-auto mb-8">
+      <div className="relative z-10 p-4 sm:p-8">
+        <div className="max-w-4xl mx-auto mb-4 sm:mb-8">
           <motion.button
             onClick={() => navigate('/')}
             className="flex items-center gap-2 glass px-4 py-2 rounded-xl text-white/70 hover:text-amber-400 font-semibold mb-6 transition-colors"
@@ -68,8 +68,8 @@ function GamePage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="text-6xl mb-4">{currentGame.emoji}</div>
-            <h1 className="text-5xl font-black gradient-text">{currentGame.title}</h1>
+            <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">{currentGame.emoji}</div>
+            <h1 className="text-3xl sm:text-5xl font-black gradient-text">{currentGame.title}</h1>
           </motion.div>
         </div>
 

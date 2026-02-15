@@ -32,7 +32,7 @@ function About() {
         <motion.div
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-16"
         >
           <motion.h2
@@ -58,7 +58,7 @@ function About() {
               key={item.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10 }}
               className="glass rounded-2xl p-8 text-center hover:border-amber-500/40 transition-colors duration-300"

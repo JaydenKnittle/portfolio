@@ -26,6 +26,21 @@ function TwentyFortyEight() {
     return g;
   };
 
+  const [tileSize, setTileSize] = useState(64);
+
+  // Responsive tile size
+  useEffect(() => {
+    const update = () => {
+      // available = screenWidth - GamePage padding - glass padding - grid padding - gaps
+      const available = Math.min(window.innerWidth - 80, 4 * 64 + 3 * 8);
+      const size = Math.max(52, Math.floor((available - 24) / 4));
+      setTileSize(size);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   const [grid, setGrid] = useState(initializeGrid);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(() => parseInt(localStorage.getItem('2048-best') || '0'));
@@ -150,7 +165,7 @@ function TwentyFortyEight() {
 
   return (
     <div className="max-w-lg mx-auto" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-3xl p-8">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-3xl p-4 sm:p-8">
         {/* Score */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex gap-4">
@@ -190,8 +205,10 @@ function TwentyFortyEight() {
                       initial={cell > 0 ? { scale: 0.5, opacity: 0 } : false}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                      className={`w-16 h-16 rounded-xl flex items-center justify-center font-black ${cell > 0 ? getFontSize(cell) : ''}`}
+                      className={`rounded-xl flex items-center justify-center font-black ${cell > 0 ? getFontSize(cell) : ''}`}
                       style={{
+                        width: tileSize,
+                        height: tileSize,
                         background: cell > 0 ? style.bg : 'rgba(255,255,255,0.03)',
                         color: cell > 0 ? style.color : 'transparent',
                         boxShadow: cell > 0 ? style.shadow : 'none',
@@ -232,15 +249,7 @@ function TwentyFortyEight() {
           </motion.button>
         </div>
 
-        {/* Mobile swipe buttons */}
-        <div className="mt-6 flex flex-col items-center gap-2 md:hidden">
-          <button className="w-12 h-12 glass rounded-xl text-amber-400 text-xl flex items-center justify-center" onClick={() => move('up')}>▲</button>
-          <div className="flex gap-2">
-            <button className="w-12 h-12 glass rounded-xl text-amber-400 text-xl flex items-center justify-center" onClick={() => move('left')}>◀</button>
-            <button className="w-12 h-12 glass rounded-xl text-amber-400 text-xl flex items-center justify-center" onClick={() => move('down')}>▼</button>
-            <button className="w-12 h-12 glass rounded-xl text-amber-400 text-xl flex items-center justify-center" onClick={() => move('right')}>▶</button>
-          </div>
-        </div>
+        <p className="text-center text-white/20 text-xs mt-4 sm:hidden">Swipe to move tiles</p>
       </motion.div>
     </div>
   );

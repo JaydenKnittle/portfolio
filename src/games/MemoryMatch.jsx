@@ -82,10 +82,10 @@ function MemoryMatch() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-3xl p-8">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-3xl p-4 sm:p-8">
         {/* Stats bar */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex gap-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-8">
+          <div className="flex gap-3 sm:gap-6">
             <div>
               <div className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">Moves</div>
               <motion.div key={moves} initial={{ scale: 1.3 }} animate={{ scale: 1 }} className="text-2xl font-black text-white">{moves}</motion.div>
@@ -112,7 +112,7 @@ function MemoryMatch() {
         </div>
 
         {/* Card Grid */}
-        <div className="grid grid-cols-4 gap-3 mb-6">
+        <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-4 sm:mb-6">
           {cards.map((card, index) => {
             const isVisible = card.isFlipped || card.isMatched;
             return (
@@ -130,7 +130,7 @@ function MemoryMatch() {
                 >
                   {/* Front (emoji face) */}
                   <div
-                    className="absolute inset-0 rounded-2xl flex items-center justify-center text-4xl"
+                    className="absolute inset-0 rounded-2xl flex items-center justify-center text-2xl sm:text-4xl"
                     style={{
                       backfaceVisibility: 'hidden',
                       background: card.isMatched

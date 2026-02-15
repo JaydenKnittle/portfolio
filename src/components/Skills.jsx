@@ -20,7 +20,7 @@ function Skills() {
         <motion.div
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-16"
         >
           <motion.h2
@@ -43,7 +43,7 @@ function Skills() {
               key={category.title}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: categoryIndex * 0.1 }}
               className="glass rounded-2xl p-6 hover:border-amber-500/40 transition-colors duration-300"
             >
@@ -62,7 +62,7 @@ function Skills() {
                     key={skill}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
                     whileHover={{ x: 5 }}
                     className="flex items-center gap-3"
